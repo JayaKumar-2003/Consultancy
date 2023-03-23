@@ -1,0 +1,16 @@
+.Signin {
+    display: flex;
+}
+.content-left {
+    height: 720px;
+    width: 750px;
+}
+.content-left > img {
+    margin: 0%;
+    height: 100%;
+    width: 100%;
+}
+.content-right {
+    display: flex;
+    flex-direction: column;
+}
