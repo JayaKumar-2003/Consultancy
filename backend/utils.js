@@ -1,7 +1,8 @@
-import  Jwt from "jsonwebtoken";
+import  jwt from "jsonwebtoken";
 
 export const generatetoken = (users) => {
-    return Jwt.sign(
+    console.log('hrllo');
+    return jwt.sign(
         {
             email: users.email,
             password :users.password,

@@ -2,7 +2,7 @@
     display: flex;
 }
 .content-left {
-    height: 720px;
+    height: 684px;
     width: 750px;
 }
 .content-left > img {
@@ -11,6 +11,54 @@
     width: 100%;
 }
 .content-right {
+    margin-left: 8rem;
     display: flex;
     flex-direction: column;
+    justify-content:space-around;
+   
+}
+.brand{
+        color: black;
+        font-size: 1.6rem;
+        font-weight: bolder;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 25rem;
+    align-items: center;
+    border:2px solid black;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: 60px -16px teal;
+    border-radius: 0.5rem;
+}
+
+.form input{
+    margin-left: 1.2rem;
+}
+
+@media screen and (max-width:480px) {
+    .content-left  {
+        width:370px;
+        height: 350px;
+        
+    }
+    .content-right {
+        margin-top: 23rem;
+        margin-left: -24rem;
+        gap: 2rem;
+    }
+    .form{
+        width: 300px;
+        margin-left: 4rem;
+        box-shadow: none;
+    }
+    .brand {
+        margin-left:3rem;
+    }
+    .form input{
+       margin-top: 1rem;
+    }
 }

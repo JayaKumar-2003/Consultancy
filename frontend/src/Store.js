@@ -5,7 +5,8 @@ export const Store = createContext();
 
 
 const initialState ={
-    userInfo:localStorage.getItem('userInfo') ?
+    fullBox :false,
+    userInfo : localStorage.getItem('userInfo') ?
     JSON.parse(localStorage.getItem('userInfo')) :
     null
 }
@@ -14,12 +15,12 @@ function reducer (state,action) {
             case 'USER_SIGNIN':
                 return {...state,userInfo:action.payload};
             default:
-                return {...state};
+                return state;
         }
 }
 
 export function StoreProvider(props) {
     const[state,dispatch] = useReducer(reducer,initialState);
     const value = {state,dispatch};
-    return <Store.Provider value={value}>{props.childern}</Store.Provider>
+    return <Store.Provider value={value}>{props.children}</Store.Provider>
 }
