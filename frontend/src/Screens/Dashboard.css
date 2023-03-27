@@ -1,5 +1,7 @@
+
 .content {
     display: flex;
+
 }
 .left-content {
     display: flex;
@@ -15,7 +17,7 @@
     margin-top: 6rem;
     gap: 3rem;
     justify-content:center ;
-    align-items:start;
+   align-items: flex-start;
     margin-left:2rem ;
 }
 .left-down label {
@@ -43,4 +45,29 @@
     font-size: 1.9rem;
     color: white;
     font-weight: bolder;
+}
+.right-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    width: 100%;
+    height: 2rem;
+    background-color: rgb(0, 234, 255);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.7rem;
+}
+.toggle {
+    float: left;
+}
+.usercontent {
+    display: flex;
+    float: right;
+    gap: 1rem;
 }
