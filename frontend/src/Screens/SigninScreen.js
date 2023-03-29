@@ -26,13 +26,14 @@ function SigninScreen() {
                 );
              ctxDispatch({type: 'USER_SIGNIN',payload:data})
              localStorage.setItem('userInfo',JSON.stringify(data));
+             console.log('entererd');
              navigate('/dashboard');
             }
             catch(err) {
                 console.log(err);
             }
     };
-    console.log('entererd')
+    
     return(
         
         <div className='Signin'>
