@@ -1,5 +1,6 @@
 import expressAsyncHandler from "express-async-handler";
 import express from 'express';
+import { generatetoken,isAuth } from "../utils.js";
 import EmployeeModel from "../Models/EmployeeModels.js";
 const EmployeeRouter= express.Router();
 
@@ -26,7 +27,7 @@ expressAsyncHandler(async (req,res)=>{
 })
 );
 
-EmployeeRouter.get('/search',async(req,res)=>{
+EmployeeRouter.get('/search',isAuth,async(req,res)=>{
     const details = await EmployeeModel.find();
     res.send(details);
 }

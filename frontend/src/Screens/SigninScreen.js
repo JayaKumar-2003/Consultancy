@@ -1,4 +1,4 @@
-import  { useContext,useState } from 'react';
+import  { useContext,useEffect,useState } from 'react';
 import Sewing from '../img/Sewing.jpg';
 import Axios from 'axios';
 import './SigninScreen.css';
@@ -26,14 +26,18 @@ function SigninScreen() {
                 );
              ctxDispatch({type: 'USER_SIGNIN',payload:data})
              localStorage.setItem('userInfo',JSON.stringify(data));
-             console.log('entererd');
+            //  console.log('entererd');
              navigate('/dashboard');
             }
             catch(err) {
                 console.log(err);
             }
     };
-    
+    useEffect(() => {
+        if(userInfo) {
+            navigate('/dashboard');
+        }
+     },[])
     return(
         
         <div className='Signin'>

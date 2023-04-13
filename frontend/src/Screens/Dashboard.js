@@ -1,5 +1,7 @@
-import react, { useState } from 'react';
+import react, { useContext, useEffect, useState } from 'react';
 import './Dashboard.css';
+import {useNavigate} from 'react-router-dom';
+import { Store } from '../Store';
 import Stats from '../Components/Stats';
 import AddEmployee from '../Components/AddEmployee';
 import ViewEmployee from '../Components/ViewEmployee';
@@ -8,6 +10,7 @@ import ViewCustomer from '../Components/ViewCustomer';
 function  Dashboard() {
 
     // Toggle for bars
+    const navigate = useNavigate();
         // icon toggle
             const [icon,Seticon] = useState(true);
         // end toogle icon
@@ -18,8 +21,21 @@ function  Dashboard() {
     const [viewemployee, Setviewemployee] = useState(false);
     const [addcustomer,Setaddcustomer] = useState(false);
     const [viewcustomer, Setviewcustomer] = useState(false);
-   
     // End line of toggle
+    
+    //useCOntext
+    const {state,dispatch :ctxDispatch} = useContext(Store);
+    const {userInfo} = state;
+    console.log(userInfo);
+
+    //signout
+     const SignoutHandler = () =>{
+        ctxDispatch({ type: 'USER_SIGNOUT' });
+        localStorage.removeItem('userInfo');
+        localStorage.removeItem('employee_add');
+     }
+
+     
     return (
         <div className='Dashboard'>
             <div className='content'>
@@ -49,8 +65,8 @@ function  Dashboard() {
                                 <label onClick={(e)=>{Seticon(!icon)}}>toggle</label>
                                 </div>
                                 <div className='usercontent'>
-                                <label>name</label>
-                                <label>logout</label>
+                                <label>{(userInfo!=null) ? userInfo.email : navigate('/')} </label>
+                                <label onClick={()=>{SignoutHandler()}}>logout</label>
                                 </div>
                             </div>
                             <div className='right-content'>

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ViewEmployee.css';
 import Axios from 'axios';
+import { Store } from '../Store';
 function ViewEmployee() {
 
         // Search State
@@ -12,21 +13,33 @@ function ViewEmployee() {
 
         // view state
         const [view,Setview] = useState(true);
-        
+
         // get from db
+        const {state,dispatch :ctxDispatch} = useContext(Store);
+        const {userInfo,employee_view} = state;
+        const fetchUser= async()=>{
+                try{
+                        const {data} = await Axios.get('http://localhost:5000/api/employee/search',{
+                                headers :{authorization:`brearer${userInfo.token}`}
+                        });
+                        ctxDispatch({type:'EMPLOYEE_VIEW',payload:data})
+                        localStorage.setItem('employee_view',JSON.stringify(data));
+                }catch(err) {
+                        console.log(err);
+                }
+        }
         useEffect(()=>{
-                fetch("http://localhost:5000/api/employee/search",{
-                        method:"GET",
-                }).then((res)=>res.json()).then((data)=>{
-                        Setsearchdb(data);
-                        console.log(data);
-                })
+                fetchUser();
         },[]);
         // get from db end
 
-
+        
+        // ctxDispatch({type:"EMPLOYEE_VIEW",payload:searchdb})
+        // localStorage.setItem('employee_view',JSON.stringify(searchdb))
+        
+        console.log(employee_view);
         const SearchHandler =(e)=>{
-                const list = searchdb.map((i)=>{
+                const list = employee_view.map((i)=>{
                         if(i.phonenumber == search) {
                                 Setcontent(i);
                         }
@@ -54,7 +67,7 @@ function ViewEmployee() {
                                 <th>EmailAddress</th>
                                 <th>Address</th>
                         </tr>
-                        {searchdb.map(i=>{
+                        {employee_view.map(i=>{
                                 return(
                                         <tr>
                                                 <td>{i.name}</td>

@@ -29,6 +29,7 @@ function Employee() {
                 phonenumber,
                 Address
             });
+            // console.log(data)
             ctxDispatch({type:'EMLPLOYEE_ADD' , payload : data});
             localStorage.setItem('employee_add',JSON.stringify(data));
             
@@ -42,7 +43,7 @@ function Employee() {
             <div>
                 <div className='content'>
                   <form onSubmit={SubmitHandler}>
-                    <div className='details-top'>
+<div className='details-top'>
                     <label>Email Address:<input type='email' onChange={(e)=>{Setemail(e.target.value)}}></input></label>
                     <label>Name:<input type='text' onChange={(e)=>{Setname(e.target.value)}}></input></label>
                     <label>password:<input type='password' onChange={(e)=>{Setpassword(e.target.value)}}></input></label>
@@ -51,7 +52,7 @@ function Employee() {
                     <label>Phonenumber:<input type='number' onChange={(e)=>{Setphonenumber(e.target.value)}}></input></label>
                     <label>Address:<input type='text' className='Address' onChange={(e)=>{SetAddress(e.target.value)}}></input></label>
                     <input className='button'type='submit' value='submit'></input>
-                    </div> 
+                    </div>                     
                   </form>
                 </div>
             </div>
