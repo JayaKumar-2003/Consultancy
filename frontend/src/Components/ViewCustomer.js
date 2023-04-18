@@ -2,10 +2,11 @@ import react, { useContext, useEffect } from 'react';
 import  Axios  from 'axios';
 import { Store } from '../Store';
 import './ViewEmployee.css';
+import FloatingDiv from './FloatingDiv';
 function ViewCustomer() {
     const {state,dispatch:ctxDispatch} = useContext(Store);
     const {userInfo,customer_view} = state;
-    console.log(customer_view);
+    console.log("-->",customer_view);
     const fetchUser = async()=>{
            try{
             const {data} = await Axios.get('http://localhost:5000/api/customer/search',{
@@ -25,24 +26,7 @@ function ViewCustomer() {
     return (
 
         <div className='ViewEmployee'>
-           <table>
-                        <tr>
-                                <th>Name</th>
-                                <th>Number</th>
-                                <th>EmailAddress</th>
-                                <th>Address</th>
-                        </tr>
-                        {customer_view.map(i=>{
-                                return(
-                                        <tr>
-                                                <td>{i.name}</td>
-                                                 <td>{i.phonenumber}</td>
-                                                <td>{i.email}</td>
-                                                <td>{i.Address}</td>
-                                        </tr>
-                                );
-                        })}
-                </table>
+          {customer_view.map((item)=><FloatingDiv item={item}></FloatingDiv>)}
         </div>
     );
 }

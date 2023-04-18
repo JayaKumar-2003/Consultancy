@@ -6,8 +6,11 @@
     width: 20rem;
     height: 3rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
-    margin-left: 5rem;
+    margin-left: 50rem;
+    margin-top: -8rem;
 }
 .search-inside input {
     width: 100%;

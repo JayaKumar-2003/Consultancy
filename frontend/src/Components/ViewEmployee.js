@@ -2,13 +2,15 @@ import React, { useContext, useEffect, useState } from 'react'
 import './ViewEmployee.css';
 import Axios from 'axios';
 import { Store } from '../Store';
+import FloatingEmp from './FloatingEmp';
+
 function ViewEmployee() {
 
         // Search State
         const [search,Setsearch] = useState('');
-        const [searchdb,Setsearchdb] = useState([]);
+      //  const [searchdb,Setsearchdb] = useState([]);
         const [searchdiv,Setsearchdiv] = useState(false);
-        const [content,Setcontent] = useState('');
+        const [content,Setcontent] = useState([]);
         // end of state
 
         // view state
@@ -17,6 +19,7 @@ function ViewEmployee() {
         // get from db
         const {state,dispatch :ctxDispatch} = useContext(Store);
         const {userInfo,employee_view} = state;
+        console.log('dd',employee_view)
         const fetchUser= async()=>{
                 try{
                         const {data} = await Axios.get('http://localhost:5000/api/employee/search',{
@@ -37,14 +40,14 @@ function ViewEmployee() {
         // ctxDispatch({type:"EMPLOYEE_VIEW",payload:searchdb})
         // localStorage.setItem('employee_view',JSON.stringify(searchdb))
         
-        console.log(employee_view);
+        console.log("emp-->",employee_view);
         const SearchHandler =(e)=>{
-                const list = employee_view.map((i)=>{
+                employee_view.map((i)=>{
                         if(i.phonenumber == search) {
-                                Setcontent(i);
+                                return Setcontent(i);
                         }
                         else {
-                                console.log('not');
+                               return console.log('not');
                         }
                 });      
         }
@@ -52,33 +55,17 @@ function ViewEmployee() {
         <div className='ViewEmployee'>
             <div className='search-bar'>
                 <div className='search-inside'>
-                        <input type='text' onChange={(e)=>{Setsearch(e.target.value);Setsearchdiv(true);Setview(false);}}></input>
-                        <span onClick={SearchHandler}>one</span>
+                        <input type='number' onChange={(e)=>{Setsearch(e.target.value);Setsearchdiv(true);Setview(false);}}></input>
+                        <span onClick={SearchHandler}><span class="material-symbols-outlined">search</span></span>
                 </div>
             </div>
-       {searchdiv && <div className='search'>
-                <p>{content.name}</p>
+       {searchdiv && <div className='search' >
+                        <FloatingEmp item={content}></FloatingEmp>
         </div> }
-           { view &&<div className='container'>
-                <table>
-                        <tr>
-                                <th>Name</th>
-                                <th>Number</th>
-                                <th>EmailAddress</th>
-                                <th>Address</th>
-                        </tr>
-                        {employee_view.map(i=>{
-                                return(
-                                        <tr>
-                                                <td>{i.name}</td>
-                                                 <td>{i.phonenumber}</td>
-                                                <td>{i.email}</td>
-                                                <td>{i.Address}</td>
-                                        </tr>
-                                );
-                        })}
-                </table>
-            </div> }
+         { view && <div>
+                {employee_view.map((item)=>
+                        <FloatingEmp item={item}></FloatingEmp>)}
+           </div>}
             
         </div>
 

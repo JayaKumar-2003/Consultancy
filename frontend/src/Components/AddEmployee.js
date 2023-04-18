@@ -32,6 +32,11 @@ function Employee() {
             // console.log(data)
             ctxDispatch({type:'EMLPLOYEE_ADD' , payload : data});
             localStorage.setItem('employee_add',JSON.stringify(data));
+            Setemail('');
+            Setname('');
+            Setpassword('');
+            Setphonenumber('');
+            SetAddress('');
             
            }
            catch(error) {

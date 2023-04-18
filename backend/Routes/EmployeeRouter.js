@@ -27,10 +27,12 @@ expressAsyncHandler(async (req,res)=>{
 })
 );
 
-EmployeeRouter.get('/search',isAuth,async(req,res)=>{
+EmployeeRouter.get('/search',isAuth,
+    expressAsyncHandler(async(req,res)=>{
     const details = await EmployeeModel.find();
     res.send(details);
-}
+    console.log(details);
+})
 
 );
 

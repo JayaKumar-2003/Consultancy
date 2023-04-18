@@ -33,10 +33,15 @@ function SigninScreen() {
                 console.log(err);
             }
     };
+    
     useEffect(() => {
-        if(userInfo) {
-            navigate('/dashboard');
-        }
+        
+            if(userInfo) {
+                    navigate('/dashboard');
+                }else {
+                    navigate('/');
+                }
+            
      },[])
     return(
         

@@ -1,0 +1,19 @@
+.item-card{
+    display: flex;
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 12px;
+    align-items: center;
+
+}
+.badge{
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4 10px;
+    width: 70px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 20px;
+    margin-left: auto;
+}
