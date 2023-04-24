@@ -1,5 +1,6 @@
 import react, { useContext, useEffect, useState } from 'react';
 import './Dashboard.css';
+import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import { Store } from '../Store';
 import Stats from '../Components/Stats';
@@ -41,7 +42,34 @@ function  Dashboard() {
         localStorage.removeItem('employee_add');
         localStorage.removeItem('customer_view');
      }
-
+     const fetchUser= async()=>{
+        try{
+                const {data} = await axios.get('http://localhost:5000/api/employee/search',{
+                        headers :{authorization:`brearer${userInfo.token}`}
+                });
+                ctxDispatch({type:'EMPLOYEE_VIEW',payload:data})
+                localStorage.setItem('employee_view',JSON.stringify(data));
+        }catch(err) {
+                console.log(err);
+        }
+  }
+    const fetchCustomer =async()=>{
+        try{
+            const {data} = await axios.get('http://localhost:5000/api/customer/search',{
+                headers:{authorization:`brearer${userInfo.token}`}
+            });
+            ctxDispatch({type:"CUSTOMER_VIEW",payload:data})
+            localStorage.setItem('customer_view',JSON.stringify(data))
+            console.log('--',data);
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
+    useEffect(()=>{
+        fetchUser();
+        fetchCustomer();
+    },[])
      
     return (
         <div className='Dashboard'>
