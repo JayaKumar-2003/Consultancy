@@ -1,13 +1,14 @@
 import React from 'react'
 import './EmpDetails.css';
-const EmpDetails = (props) => {
-    const {item} = props;
-    console.log('entered',item);
-    const {Address,email,name,password,phonenumber} = item;
-    console.log('empdetails',item)
-  return (
-    <div>email</div>
-  )
-}
 
+function EmpDetails (props) {
+  console.log(props);
+  const [details] = props;
+  console.log('mm',details)
+  return(
+    <div>
+      hello
+    </div>
+  );
+}
 export default EmpDetails;

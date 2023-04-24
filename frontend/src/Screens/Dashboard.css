@@ -8,6 +8,7 @@
     flex-direction: column;
     width: 12rem;
     background-color: black;
+    padding-bottom: 25rem;
 }
 .left-down{
     display: flex;

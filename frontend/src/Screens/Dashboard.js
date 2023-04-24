@@ -29,15 +29,17 @@ function  Dashboard() {
     console.log(userInfo);
     useEffect(()=>{
         if(userInfo) {
-            console.log('dd')
             navigate('/dashboard')
+        }else {
+            navigate('/');
         }
-    })
+    },[]);
     //signout
      const SignoutHandler = () =>{
         ctxDispatch({ type: 'USER_SIGNOUT' });
         localStorage.removeItem('userInfo');
         localStorage.removeItem('employee_add');
+        localStorage.removeItem('customer_view');
      }
 
      
@@ -47,31 +49,31 @@ function  Dashboard() {
                 {icon && <div className='left-content'>
                     <label className='admin'>ADMIN</label>
                     <div className='left-down'>
-                        <label onClick={(e)=>{Setstats(!stats); Setaddemployee(false);Setviewemployee(false);Setaddcustomer(false);Setviewcustomer(false)}}>Dashboard</label>
-                        <label onClick={(e)=>{
+                        <label className='pointer' onClick={(e)=>{Setstats(!stats); Setaddemployee(false);Setviewemployee(false);Setaddcustomer(false);Setviewcustomer(false)}}>Dashboard</label>
+                        <label  className='pointer'onClick={(e)=>{
                             Setemployee(!employee)
                         }}>Employee</label>
                             {employee && <div className='list'>
-                                <label onClick={(e)=>{Setaddemployee(!addemployee);Setstats(false);Setviewemployee(false);Setaddcustomer(false);Setviewcustomer(false)}}>Add</label>
-                                <label onClick={(e=>{Setviewemployee(!viewemployee);Setaddemployee(false);Setstats(false);Setaddcustomer(false);Setviewcustomer(false)})}>View</label>
+                                <label className='pointer' onClick={(e)=>{Setaddemployee(!addemployee);Setstats(false);Setviewemployee(false);Setaddcustomer(false);Setviewcustomer(false)}}>Add</label>
+                                <label className='pointer' onClick={(e=>{Setviewemployee(!viewemployee);Setaddemployee(false);Setstats(false);Setaddcustomer(false);Setviewcustomer(false)})}>View</label>
                                 </div>}
-                        <label onClick={(e)=>{
+                        <label className='pointer' onClick={(e)=>{
                             Setcustomer(!customer)
                         }}>Customer</label>
                         {customer && <div className='list'>
-                                <label onClick={(e)=>{Setaddcustomer(!addcustomer);Setaddemployee(false);Setstats(false);Setviewemployee(false);Setviewcustomer(false)}}>Add</label>
-                                <label onClick={(e)=>{Setviewcustomer(!viewcustomer);Setviewemployee(false);Setstats(false);Setaddemployee(false);Setaddcustomer(false)}}>View</label>
+                                <label className='pointer' onClick={(e)=>{Setaddcustomer(!addcustomer);Setaddemployee(false);Setstats(false);Setviewemployee(false);Setviewcustomer(false)}}>Add</label>
+                                <label className='pointer'onClick={(e)=>{Setviewcustomer(!viewcustomer);Setviewemployee(false);Setstats(false);Setaddemployee(false);Setaddcustomer(false)}}>View</label>
                                 </div>}
                     </div>
                 </div> }
                 <div className='nav'>
                             <div className='nav-inside'>
                                 <div className='toggle'>
-                                <label onClick={(e)=>{Seticon(!icon)}}><span class="material-symbols-outlined">menu</span></label>
+                                <label className='pointer'  onClick={(e)=>{Seticon(!icon)}}><span class="material-symbols-outlined">menu</span></label>
                                 </div>
                                 <div className='usercontent'>
                                 <label>{(userInfo!=null) ? userInfo.email : navigate('/')} </label>
-                                <label onClick={()=>{SignoutHandler()}}><span class="material-symbols-outlined">logout</span></label>
+                                <label className='pointer' onClick={()=>{SignoutHandler()}}><span class="material-symbols-outlined">logout</span></label>
                                 </div>
                             </div>
                             <div className='right-content'>

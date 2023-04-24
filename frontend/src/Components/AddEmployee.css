@@ -1,32 +1,40 @@
 .content form {
-    border:1px solid black;
+    border: 1px solid black;
     border-radius: 1rem;
     padding: 1rem 1rem 1rem 1rem;
 }
+
 .content form {
-    display: flex; 
+    display: flex;
 }
+
 .content form input {
     margin-left: 1rem;
 }
+
 .Address {
     height: 10rem;
     width: 15rem;
 }
+
 .details-top {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
    
+
 }
+
 .details-down {
     display: flex;
+ 
     flex-direction: column;
     gap: 2rem;
     padding-left: 3rem;
     align-items: flex-start;
 }
+
 .button {
     margin-top: 2rem;
     width: 4rem;

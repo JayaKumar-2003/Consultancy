@@ -35,5 +35,16 @@ EmployeeRouter.get('/search',isAuth,
 })
 
 );
-
+EmployeeRouter.delete('/delete/:id',
+expressAsyncHandler(async(req,res)=>{
+    try {
+    const details = await EmployeeModel.findById(req.params.id);
+    if(details) {
+        await EmployeeModel.findByIdAndDelete(req.params.id);
+        console.log('deleted')
+    }
+}catch(err) {
+    console.log(err);
+    }
+}));
 export default EmployeeRouter;

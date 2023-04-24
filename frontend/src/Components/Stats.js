@@ -11,13 +11,16 @@ function Stats() {
             <div className=''>
                 <div className='employee-card'>
                     <div className='card'>
+                    <span class="material-symbols-outlined">diversity_3</span>
                         <div className='card-inside'>
                             <label>{employee_view.length}</label>
                         </div>
                         <label>Total Employee</label>
                     </div>
                     <div className='card'>
+                    <span class="material-symbols-outlined">diversity_1</span>
                         <div className='card-inside'>
+                       
                             <label>{(customer_view.length)?customer_view.length:0}</label>
                         </div>
                         <label>Total Customer</label>

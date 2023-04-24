@@ -35,14 +35,13 @@ function SigninScreen() {
     };
     
     useEffect(() => {
-        
             if(userInfo) {
                     navigate('/dashboard');
                 }else {
                     navigate('/');
                 }
             
-     },[])
+     },[userInfo])
     return(
         
         <div className='Signin'>

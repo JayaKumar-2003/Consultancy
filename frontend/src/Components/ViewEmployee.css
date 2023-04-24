@@ -18,10 +18,17 @@
     border-radius: 2rem;
     font-size: 2rem;
 }
+.search {
+    z-index: 1;
+    margin-left: -20rem;
+}
 .ViewEmployee {
     display: flex;
+    margin-left:2rem;
     flex-direction: column;
-    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
 }
 table {
     width: 5rem;
@@ -36,4 +43,14 @@ table td {
 }
 .container {
     margin-left: -3rem;
+}
+.emp-details {
+    margin-top: -5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap-reverse;
+    gap: 1rem;
+    overflow: scroll;
+    height: 30rem;
+    width: 75rem;
 }

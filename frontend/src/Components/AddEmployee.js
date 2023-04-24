@@ -22,7 +22,7 @@ function Employee() {
         const SubmitHandler = async (e) => {
             e.preventDefault();
            try {
-            const {data} = await Axios.post('/api/employee/add',{
+            const {data} = await Axios.post('http://localhost:5000/api/employee/add',{
                 email,
                 name,
                 password,
@@ -30,14 +30,8 @@ function Employee() {
                 Address
             });
             // console.log(data)
-            ctxDispatch({type:'EMLPLOYEE_ADD' , payload : data});
-            localStorage.setItem('employee_add',JSON.stringify(data));
-            Setemail('');
-            Setname('');
-            Setpassword('');
-            Setphonenumber('');
-            SetAddress('');
-            
+            ctxDispatch({type:'EMLPLOYEE_ADD', payload : data});
+            localStorage.setItem('employee_add',JSON.stringify(data)); 
            }
            catch(error) {
                 console.log(error);

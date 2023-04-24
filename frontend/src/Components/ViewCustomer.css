@@ -1,0 +1,9 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: black;
+    height: 5rem;
+    width: 10rem;
+
+}

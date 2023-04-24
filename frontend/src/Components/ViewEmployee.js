@@ -56,17 +56,19 @@ function ViewEmployee() {
             <div className='search-bar'>
                 <div className='search-inside'>
                         <input type='number' onChange={(e)=>{Setsearch(e.target.value);Setsearchdiv(true);Setview(false);}}></input>
-                        <span onClick={SearchHandler}><span class="material-symbols-outlined">search</span></span>
+                        <span onClick={SearchHandler}><span class="material-symbols-outlined pointer">search</span></span>
                 </div>
             </div>
        {searchdiv && <div className='search' >
                         <FloatingEmp item={content}></FloatingEmp>
         </div> }
-         { view && <div>
+         { view && <div className='emp-details'>
                 {employee_view.map((item)=>
                         <FloatingEmp item={item}></FloatingEmp>)}
            </div>}
-            
+            <div>
+                
+            </div>
         </div>
 
         );

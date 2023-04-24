@@ -5,7 +5,6 @@ import {generatetoken,isAuth} from '../utils.js';
 const CustomerRouter = express.Router();
 
 CustomerRouter.post('/create',
-
     expressAsyncHandler(async(req,res)=>{
         console.log('enterd');
         console.log(req.body.product)
@@ -33,6 +32,7 @@ CustomerRouter.post('/create',
         console.log(Add)
     })
 );
+
 CustomerRouter.get('/search',isAuth,async(req,res)=>{
     const details = await Customer.find();
     res.send(details);

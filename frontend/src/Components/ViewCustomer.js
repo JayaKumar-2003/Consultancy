@@ -1,12 +1,13 @@
 import react, { useContext, useEffect } from 'react';
 import  Axios  from 'axios';
 import { Store } from '../Store';
-import './ViewEmployee.css';
+import './ViewCustomer.css';
 import FloatingDiv from './FloatingDiv';
 function ViewCustomer() {
     const {state,dispatch:ctxDispatch} = useContext(Store);
     const {userInfo,customer_view} = state;
     console.log("-->",customer_view);
+    
     const fetchUser = async()=>{
            try{
             const {data} = await Axios.get('http://localhost:5000/api/customer/search',{
@@ -14,7 +15,7 @@ function ViewCustomer() {
             });
             ctxDispatch({type:"CUSTOMER_VIEW",payload:data})
             localStorage.setItem('customer_view',JSON.stringify(data))
-            console.log(data);
+            console.log('--',data);
            }
              catch(err) {
                 console.log(err)
@@ -25,8 +26,12 @@ function ViewCustomer() {
     },[]);
     return (
 
-        <div className='ViewEmployee'>
-          {customer_view.map((item)=><FloatingDiv item={item}></FloatingDiv>)}
+        <div className='ViewCustomer'>
+           {customer_view.map((i)=>
+                <div className='box'>
+                        {i.phonenumber}
+                </div>
+           )}
         </div>
     );
 }
