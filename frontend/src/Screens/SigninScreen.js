@@ -51,9 +51,9 @@ function SigninScreen() {
             <div className='content-right'>
                 <label className='brand'>Shri Bhagavathi Amman</label>
                 <form className='form' onSubmit={SubmitHandler}>
-                   <label>Email Address:<input type="email" onChange={(e)=> {Setemail(e.target.value)}}></input></label>
-                    <label>Password:<input type="password" onChange={(e)=>{Setpassword(e.target.value)}}></input></label>
-                    <input type="submit" value="submit"></input>
+                   <label>Email Address:<input type="email"  onChange={(e)=> {Setemail(e.target.value)}}></input></label>
+                    <label>Password:<input type="password"  onChange={(e)=>{Setpassword(e.target.value)}}></input></label>
+                    <button value='Submit'></button>
                 </form>
             </div>
         </div>
