@@ -3,6 +3,7 @@ import  Axios  from 'axios';
 import { Store } from '../Store';
 import './ViewCustomer.css';
 import FloatingDiv from './FloatingDiv';
+import FloatingCus from './FloatingCus';
 function ViewCustomer() {
     const {state,dispatch:ctxDispatch} = useContext(Store);
     const {userInfo,customer_view} = state;
@@ -27,10 +28,7 @@ function ViewCustomer() {
     return (
 
         <div className='ViewCustomer'>
-           {customer_view.map((i)=>
-                <div className='box'>
-                        {i.phonenumber}
-                </div>
+           {customer_view.map((item)=> <FloatingCus item={item}></FloatingCus>
            )}
         </div>
     );
