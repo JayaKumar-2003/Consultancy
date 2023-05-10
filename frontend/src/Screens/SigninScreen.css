@@ -1,10 +1,11 @@
 .Signin {
     display: flex;
+    background: linear-gradient(106.37deg, #e98ce4 29.63%, #ffcfd1 51.55%, #e6bd67 90.85%);
 }
 .content-left {
     height: 684px;
     width: 750px;
-}
+} 
 .content-left > img {
     margin: 0%;
     height: 100%;
@@ -16,7 +17,7 @@
     flex-direction: column;
     justify-content:space-around;
    
-}
+} 
 .brand{
         color: black;
         font-size: 1.6rem;
@@ -31,13 +32,33 @@
     border:2px solid black;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    box-shadow: 60px -16px teal;
     border-radius: 0.5rem;
 }
 
 .form input{
     margin-left: 1.2rem;
+    color:#000000;
+    font-weight: bold;
+    font-size:medium;
+    background: transparent;
+          border-bottom: 1px solid #e605da;
+          border-top: none;
+          border-left: none;
+          border-right: none;
 }
+.form button{
+          width: 150px;
+          height:30px;
+          background:transparent;
+          font-family: 'Comic Sans MS';
+          font-weight: bold;
+          margin-top: 30px;
+          font-size: 18px;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: 0.4s ease;
+}
+
 
 @media screen and (max-width:480px) {
     .content-left  {
@@ -61,4 +82,4 @@
     .form input{
        margin-top: 1rem;
     }
-}
+} 

@@ -13,7 +13,7 @@ function  Dashboard() {
     // Toggle for bars
     const navigate = useNavigate();
         // icon toggle
-            const [icon,Seticon] = useState(true);
+            const [icon,Seticon] = useState(false);
         // end toogle icon
     const [employee,Setemployee] = useState(false);
     const [customer,Setcustomer] = useState(false);
