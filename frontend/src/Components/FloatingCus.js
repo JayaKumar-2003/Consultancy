@@ -7,7 +7,6 @@ const FloatingCus = (props) => {
     const {item}=props;
     const {address,amount,email,name,paid,phonenumber,product}=item;
     const [contain,Setcontain] = useState(false);
-    console.log("item",address);
     const [details,Setdetails] = useState(''); 
     const {state,dispatch :ctxDispatch} = useContext(Store);
     const {userInfo,employee_view,customer_view} = state;
@@ -45,9 +44,9 @@ const FloatingCus = (props) => {
 //       }
 //     }
   
-//   useEffect(()=>{
-//         fetchUser();
-//   },[deleteHandler]);
+  useEffect(()=>{
+        fetchUser();
+  },[]);
   return (
     <div className='FloatingEmp' >
     <div className='display'>

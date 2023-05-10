@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './FloatingEmp.css';
+import Popup from './SmallComponents/Popup.js'
 import EmpDetails from './SmallComponents/EmpDetails';
 import {Store} from '../Store.js';
 import  axios  from 'axios';
 const FloatingEmp = (props) => {
+  const[buttonpopup,setButtonpopup]=useState(false);
+    const[timepopup,setTimepopup]=useState(false);
     const {item} = props;
     const [contain,Setcontain] = useState(false);
     const {Address,email,name,password,phonenumber} = item;
@@ -29,7 +32,6 @@ const FloatingEmp = (props) => {
       }
 }
 const deleteHandler = async (_id)=>{
-  console.log(_id);
     try {
       const {data} = await axios.delete(`http://localhost:5000/api/employee/delete/${_id}`).then(
         response => console.log(response.data)
@@ -47,8 +49,7 @@ useEffect(()=>{
       fetchUser();
 },[deleteHandler]);
     
-    
-      console.log(employee_view);
+  
       
   return (
     <div className='FloatingEmp' >
@@ -71,11 +72,15 @@ useEffect(()=>{
        </div>
        <div className='edit'>
        <span class="material-symbols-outlined pointer" onClick={()=>{deleteHandler(details._id)}}>delete</span>
-       <span class="material-symbols-outlined pointer" >edit_note</span>
+       <span class="material-symbols-outlined pointer" onClick={()=>{setButtonpopup(true)}}>edit_note</span>
        </div>
         </div>
        </div> }
        </div> 
+       <Popup trigger={buttonpopup} setTrigger={setButtonpopup} details={details} >
+            </Popup>
+            <Popup trigger={timepopup} setTrigger={setTimepopup} details={details}>
+            </Popup>
     </div> 
   )
 }

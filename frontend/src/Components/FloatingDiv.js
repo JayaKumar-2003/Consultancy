@@ -3,7 +3,6 @@ import './FloatingDiv.css';
 const FloatingDiv = (props) => {
     const {item} = props;
     const {address,amount,email,name,paid,phonenumber,product} = item;
-    console.log(amount);
   return (
     <div className='item-card' >
          <div className='card-title'></div>

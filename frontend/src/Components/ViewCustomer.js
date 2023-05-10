@@ -7,7 +7,7 @@ import FloatingCus from './FloatingCus';
 function ViewCustomer() {
     const {state,dispatch:ctxDispatch} = useContext(Store);
     const {userInfo,customer_view} = state;
-    console.log("-->",customer_view);
+
     
     const fetchUser = async()=>{
            try{
@@ -16,7 +16,6 @@ function ViewCustomer() {
             });
             ctxDispatch({type:"CUSTOMER_VIEW",payload:data})
             localStorage.setItem('customer_view',JSON.stringify(data))
-            console.log('--',data);
            }
              catch(err) {
                 console.log(err)

@@ -27,7 +27,7 @@ function  Dashboard() {
     //useCOntext
     const {state,dispatch :ctxDispatch} = useContext(Store);
     const {userInfo} = state;
-    console.log(userInfo);
+
     useEffect(()=>{
         if(userInfo) {
             navigate('/dashboard')
@@ -60,7 +60,7 @@ function  Dashboard() {
             });
             ctxDispatch({type:"CUSTOMER_VIEW",payload:data})
             localStorage.setItem('customer_view',JSON.stringify(data))
-            console.log('--',data);
+
         }
         catch(err) {
             console.log(err);

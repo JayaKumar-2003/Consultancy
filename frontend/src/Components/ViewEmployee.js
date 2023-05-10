@@ -19,8 +19,8 @@ function ViewEmployee() {
         // get from db
         const {state,dispatch :ctxDispatch} = useContext(Store);
         const {userInfo,employee_view} = state;
-        console.log('dd',employee_view)
-        const fetchUser= async()=>{
+        const fetchUser= async(e)=>{
+                e.preventDefault();
                 try{
                         const {data} = await Axios.get('http://localhost:5000/api/employee/search',{
                                 headers :{authorization:`brearer${userInfo.token}`}
@@ -40,7 +40,7 @@ function ViewEmployee() {
         // ctxDispatch({type:"EMPLOYEE_VIEW",payload:searchdb})
         // localStorage.setItem('employee_view',JSON.stringify(searchdb))
         
-        console.log("emp-->",employee_view);
+
         const SearchHandler =(e)=>{
                 employee_view.map((i)=>{
                         if(i.phonenumber == search) {

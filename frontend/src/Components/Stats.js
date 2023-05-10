@@ -4,7 +4,6 @@ import { Store } from '../Store';
 function Stats() {
     const {state,dispatch:ctxDispatch} = useContext(Store);
     const {employee_view,customer_view} = state;
-    console.log(customer_view);
 
     return(
         <div>

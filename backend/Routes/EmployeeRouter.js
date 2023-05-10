@@ -31,7 +31,6 @@ EmployeeRouter.get('/search',isAuth,
     expressAsyncHandler(async(req,res)=>{
     const details = await EmployeeModel.find();
     res.send(details);
-    console.log(details);
 })
 
 );
@@ -47,4 +46,32 @@ expressAsyncHandler(async(req,res)=>{
     console.log(err);
     }
 }));
+
+EmployeeRouter.patch('/update/:id', expressAsyncHandler(async (req, res) => {
+    try {
+      const { id } = req.params;
+      const {
+        email,
+        name,
+        password,
+        phoneNumber,
+        address
+      } = req.body;
+  
+      const updatedEmployee = await EmployeeModel.findByIdAndUpdate(id, {
+        email,
+        name,
+        password,
+        phoneNumber,
+        address
+      }, {
+        new: true
+      });
+  
+      res.json(updatedEmployee);
+    } catch (error) {
+      console.error('Error updating employee:', error);
+      res.status(500).json({ error: 'Failed to update employee' });
+    }
+  }));
 export default EmployeeRouter;

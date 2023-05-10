@@ -7,7 +7,6 @@ const CustomerRouter = express.Router();
 CustomerRouter.post('/create',
     expressAsyncHandler(async(req,res)=>{
         console.log('enterd');
-        console.log(req.body.product)
         const AddCustomer = new Customer(
             {
                 email : req.body.email,
@@ -29,7 +28,6 @@ CustomerRouter.post('/create',
             paid:Add.paid,
             amount:Add.amount,
         });
-        console.log(Add)
     })
 );
 
