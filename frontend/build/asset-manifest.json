@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e336e2bd.css",
+    "main.js": "/static/js/main.06b3b5ce.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/Sewing.jpg": "/static/media/Sewing.592bc4d058ec6ecb5850.jpg",
+    "index.html": "/index.html",
+    "main.e336e2bd.css.map": "/static/css/main.e336e2bd.css.map",
+    "main.06b3b5ce.js.map": "/static/js/main.06b3b5ce.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e336e2bd.css",
+    "static/js/main.06b3b5ce.js"
+  ]
+}
