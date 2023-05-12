@@ -2,8 +2,10 @@ import React ,{useEffect,useState,useContext}from 'react';
 import axios from 'axios';
 import { Store } from '../Store.js';
 import './FloatingCus.css';
+import Popup from './SmallComponents/popupCus.js';
 const FloatingCus = (props) => {
-
+  const[buttonpopup,setButtonpopup]=useState(false);
+  const[timepopup,setTimepopup]=useState(false);
     const {item}=props;
     const {address,amount,email,name,paid,phonenumber,product}=item;
     const [contain,Setcontain] = useState(false);
@@ -67,12 +69,16 @@ const FloatingCus = (props) => {
       <span>Total amount: {details.paid}</span>
       </div>
       <div className='edit'>
-      <span class="material-symbols-outlined pointer" >delete</span>
-      <span class="material-symbols-outlined pointer" >edit_note</span>
+      <span class="material-symbols-outlined pointer" onClick={{}}>delete</span>
+      <span class="material-symbols-outlined pointer"onClick={setButtonpopup(true)} >edit_note</span>
       </div>
        </div>
       </div> }
       </div> 
+      <Popup trigger={buttonpopup} setTrigger={setButtonpopup} details={details} >
+            </Popup>
+            <Popup trigger={timepopup} setTrigger={setTimepopup} details={details}>
+            </Popup>
    </div> 
 
   )

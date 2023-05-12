@@ -52,7 +52,7 @@ useEffect(()=>{
   
       
   return (
-    <div className='FloatingEmp' >
+    <div className='FloatingEmp'>
      <div className='display'>
        <div className='box-container'>
             <div className='title'>{name}</div>

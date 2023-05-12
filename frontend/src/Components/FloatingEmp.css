@@ -51,6 +51,7 @@
     transform: translate(-50%);
     background-color: aliceblue;
     border-radius: 1rem;
+    color: black;
 }
 
 .FloatingEmp {
@@ -59,7 +60,7 @@
 }
 .arrow {
     display: flex;
-    
+    color: black;
     align-items: center;
     margin-top: -2rem;
     background-color: white;

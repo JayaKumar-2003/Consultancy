@@ -1,9 +1,10 @@
-.box {
+.ViewCustomer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap:wrap-reverse;
     gap: 1rem;
-    background-color: black;
-    height: 5rem;
-    width: 10rem;
-
+    /* background-color: black; */
+    height: 30rem;
+    width: 75rem;
+    overflow: scroll;
 }
