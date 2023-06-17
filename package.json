@@ -4,8 +4,8 @@
   "description": "Jayakumr",
   "main": "index.js",
   "scripts": {
-    "build":"cd backend && npm install && cd ../frontend && npm install && npm run build",
-    "start": "node backend/server.js",
+    "build":"cd frontend && npm install &&  npm install && npm run build",
+    "start": "cd backend && npm install && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
     
   },
