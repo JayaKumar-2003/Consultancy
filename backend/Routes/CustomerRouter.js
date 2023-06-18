@@ -34,5 +34,48 @@ CustomerRouter.post('/create',
 CustomerRouter.get('/search',isAuth,async(req,res)=>{
     const details = await Customer.find();
     res.send(details);
-})
+});
+CustomerRouter.delete('/delete/:id',
+expressAsyncHandler(async(req,res)=>{
+    try {
+    const details = await Customer.findById(req.params.id);
+    if(details) {
+        await Customer.findByIdAndDelete(req.params.id);
+        console.log('deleted')
+    }
+}catch(err) {
+    console.log(err);
+    }
+}));
+CustomerRouter.patch('/update/:id', expressAsyncHandler(async (req, res) => {
+    try {
+      const { id } = req.params;
+      const {
+        email,
+        name,
+        product,
+        phonenumber,
+        address,
+        paid,
+        amount,
+      } = req.body;
+  
+      const updatedCustomer = await Customer.findByIdAndUpdate(id, {
+        email,
+        name,
+        product,
+        phonenumber,
+        address,
+        paid,
+        amount,
+      }, {
+        new: true
+      });
+  
+      res.json(updatedCustomer);
+    } catch (error) {
+      console.error('Error updating Customer:', error);
+      res.status(500).json({ error: 'Failed to update Customer' });
+    }
+  }));
 export default CustomerRouter;

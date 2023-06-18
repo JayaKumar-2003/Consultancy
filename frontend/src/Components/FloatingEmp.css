@@ -17,6 +17,7 @@
     align-items: center;
     justify-content: center;
     background-color:  #7BEE52;
+    color: black;
     min-width: 10rem;
     height: 2rem;
     margin-left: 2rem;
@@ -85,4 +86,5 @@
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+    color: black;
 }

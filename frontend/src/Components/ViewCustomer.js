@@ -1,4 +1,4 @@
-import react, { useContext, useEffect } from 'react';
+import react, { useContext, useEffect, useState } from 'react';
 import  Axios  from 'axios';
 import { Store } from '../Store';
 import './ViewCustomer.css';
@@ -7,6 +7,7 @@ import FloatingCus from './FloatingCus';
 function ViewCustomer() {
     const {state,dispatch:ctxDispatch} = useContext(Store);
     const {userInfo,customer_view} = state;
+    const [details,Setdetails] = useState([]);
 
     
     const fetchUser = async()=>{
@@ -22,12 +23,13 @@ function ViewCustomer() {
            }
     };
     useEffect(()=>{
+        Setdetails(customer_view);
         fetchUser();
     },[]);
     return (
 
         <div className='ViewCustomer'>
-           {customer_view.map((item)=> <FloatingCus item={item}></FloatingCus>
+           {details.map((item)=> <FloatingCus item={item}></FloatingCus>
            )}
         </div>
     );
